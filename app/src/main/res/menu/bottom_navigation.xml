@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_one"
+        android:checked="true"
+        android:icon="@drawable/main_one"
+        android:title="@string/bottom_one"/>
+    <item
+        android:id="@+id/menu_all"
+        android:icon="@drawable/main_all"
+        android:title="@string/bottom_all"
+        />
+    <item
+        android:id="@+id/menu_me"
+        android:icon="@drawable/main_me"
+        android:title="@string/bottom_me"
+        />
+</menu>

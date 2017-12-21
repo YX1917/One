@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/img_photo_bg"/>
+
+    <LinearLayout
+        android:id="@+id/ll_photo_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/liked_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintRight_toRightOf="@+id/imageView">
+
+        <ImageView
+            android:id="@+id/img_phono_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/bubble_like"/>
+
+        <TextView
+            android:id="@+id/tv_photo_like_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="46457"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_photo_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="摄影"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"/>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" | "
+        app:layout_constraintBottom_toBottomOf="@+id/tv_photo_title"
+        app:layout_constraintLeft_toRightOf="@+id/tv_photo_title"
+        app:layout_constraintRight_toLeftOf="@+id/tv_photo_pic_info"
+        app:layout_constraintTop_toTopOf="@+id/tv_photo_title"/>
+
+    <TextView
+        android:id="@+id/tv_photo_pic_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fabrizio Verrecchia"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintLeft_toRightOf="@+id/textView5"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView5"/>
+
+    <TextView
+        android:id="@+id/tv_photo_forward"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:lineSpacingExtra="4dp"
+        android:text="人生每个阶段，需要的爱情也不同。两个人会走在一起，是因为需要同类的爱情。激荡、安定、忘我、平淡、执迷、踏实，人生走在同一条时间轴，看天空的颜色、呼吸的频率，都一样，就会在一起。"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_photo_pic_info"/>
+
+    <TextView
+        android:id="@+id/tv_photo_words_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:text="南方舞厅《玛嘉烈与大卫 丝丝》"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_photo_forward"
+        app:layout_constraintRight_toRightOf="@+id/tv_photo_forward"
+        app:layout_constraintTop_toBottomOf="@+id/tv_photo_forward"/>
+
+    <LinearLayout
+        android:id="@+id/ll_photo_find"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_photo_words_info">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/bubble_find"/>
+
+        <TextView
+            android:layout_marginStart="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="发现"/>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/ibtn_photo_collect"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_photo_diary"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_photo_diary"
+        app:srcCompat="@mipmap/bubble_share"/>
+
+    <ImageButton
+        android:id="@+id/ibtn_photo_diary"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_photo_share"
+        app:layout_constraintRight_toLeftOf="@+id/ibtn_photo_collect"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_photo_share"
+        app:srcCompat="@mipmap/bubble_diary"/>
+
+    <ImageButton
+        android:id="@+id/ibtn_photo_share"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/ll_photo_find"
+        app:layout_constraintRight_toLeftOf="@+id/ibtn_photo_diary"
+        app:layout_constraintTop_toTopOf="@+id/ll_photo_find"
+        app:srcCompat="@mipmap/bubble_collect"/>
+
+</android.support.constraint.ConstraintLayout>

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.young.one.R;
+import com.young.one.adapter.OneTypeItem;
 import com.young.one.base.BaseFragment;
 import com.young.one.bean.IdListBean;
 import com.young.one.bean.OneListBean;
@@ -42,6 +43,8 @@ public class OneFragment extends BaseFragment implements OneListView {
     private OneListPresenter mOneListPresenter;
     private List<String> mIdList;
     private List<OneListBean> mOneList = new ArrayList<>();
+
+    private OneTypeItem mOneTypeItem;
 
     @BindView(R.id.tv_one_year)
     TextView mTvOneYear;
@@ -79,7 +82,6 @@ public class OneFragment extends BaseFragment implements OneListView {
         super.onViewCreated(view, savedInstanceState);
 
         initPresenter();
-
         recyclerView = new RecyclerView(getActivity());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -103,7 +105,6 @@ public class OneFragment extends BaseFragment implements OneListView {
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
                 recyclerView.setLayoutManager(linearLayoutManager);
                 recyclerView.setAdapter(mContentListBeanCommonAdapter);
-//                recyclerView.setAdapter(mStringCommonAdapter);
                 container.addView(recyclerView);
                 return recyclerView;
             }
@@ -151,7 +152,10 @@ public class OneFragment extends BaseFragment implements OneListView {
                 holder.setText(R.id.text1, contentListBean.getTitle());
             }
         };
-        recyclerView.setAdapter(mContentListBeanCommonAdapter);
+
+        mOneTypeItem  = new OneTypeItem(getActivity(),mContentListBeen);
+//        recyclerView.setAdapter(mContentListBeanCommonAdapter);
+        recyclerView.setAdapter(mOneTypeItem);
     }
 
     private void initPresenter() {
@@ -204,7 +208,7 @@ public class OneFragment extends BaseFragment implements OneListView {
         for (OneListBean.DataBean.ContentListBean contentListBean : oneListBean.getData().getContent_list()) {
             mContentListBeen.add(contentListBean);
         }
-        mContentListBeanCommonAdapter.notifyDataSetChanged();
+        mOneTypeItem.notifyDataSetChanged();
 
 
     }

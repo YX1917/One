@@ -5,7 +5,6 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
@@ -23,7 +22,6 @@ public class MainActivity extends BaseActivity{
     private OneFragment mOneFragment;
     private AllFragment mAllFragment;
     private MeFragment mMeFragment;
-    private ViewPager mViewPager;
 
     @BindView(R.id.main_frameLayout)
     FrameLayout mMainFrameLayout;

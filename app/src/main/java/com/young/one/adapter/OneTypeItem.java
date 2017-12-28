@@ -16,7 +16,7 @@ public class OneTypeItem extends MultiItemTypeAdapter<OneListBean.DataBean.Conte
         super(context, datas);
         addItemViewDelegate(new PhotoItem());
         addItemViewDelegate(new ReadingItem());
-        addItemViewDelegate(new MovisItem());
+        addItemViewDelegate(new MovieItem());
         addItemViewDelegate(new MusicItem());
     }
 }

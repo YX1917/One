@@ -34,8 +34,8 @@ public class OneListPresenter extends BasePresenter<OneListView> {
             }
 
             @Override
-            public void onError() {
-                getView().showErr();
+            public void onError(Throwable e) {
+                getView().showErr(e);
             }
 
             @Override
@@ -65,8 +65,8 @@ public class OneListPresenter extends BasePresenter<OneListView> {
             }
 
             @Override
-            public void onError() {
-                getView().showErr();
+            public void onError(Throwable e) {
+                getView().showErr(e);
             }
 
             @Override

@@ -12,7 +12,7 @@ import com.young.one.utils.recyclerview.base.ViewHolder;
 public class MusicItem implements ItemViewDelegate<OneListBean.DataBean.ContentListBean> {
     @Override
     public int getItemViewLayoutId() {
-        return R.layout.item_movis;
+        return R.layout.item_music;
     }
 
     @Override
@@ -23,6 +23,12 @@ public class MusicItem implements ItemViewDelegate<OneListBean.DataBean.ContentL
     @Override
     public void convert(ViewHolder holder, OneListBean.DataBean.ContentListBean contentListBean, int position) {
         holder.setText(R.id.tv_music_forward, contentListBean.getForward());
+        holder.setText(R.id.tv_music_content_title, contentListBean.getTitle());
+        holder.setText(R.id.tv_music_singer, contentListBean.getShare_info().getTitle().split(": ")[1] + "|" + contentListBean.getSubtitle().split(":")[1]);
+        holder.setText(R.id.tv_music_author, contentListBean.getShare_list().getWx().getDesc().split(" ")[0]);
+        holder.setText(R.id.tv_music_like_num, String.valueOf(contentListBean.getLike_count()));
+        holder.setimg(R.id.img_music_picture,contentListBean.getImg_url());
+
 
     }
 }

@@ -1,31 +1,20 @@
 package com.young.one.ui.fragment;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
-import android.support.v4.view.PagerAdapter;
+import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.young.one.R;
-import com.young.one.adapter.OneTypeItem;
 import com.young.one.base.BaseFragment;
-import com.young.one.bean.IdListBean;
-import com.young.one.bean.OneListBean;
-import com.young.one.presenter.OneListPresenter;
-import com.young.one.utilcode.util.LogUtils;
-import com.young.one.utils.ComparatorDate;
-import com.young.one.utils.recyclerview.CommonAdapter;
-import com.young.one.utils.recyclerview.base.ViewHolder;
-import com.young.one.view.OneListView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -36,15 +25,12 @@ import butterknife.Unbinder;
  * Created by yangxing on 2017/11/9.
  */
 
-public class OneFragment extends BaseFragment implements OneListView {
-    private CommonAdapter<OneListBean.DataBean.ContentListBean> mContentListBeanCommonAdapter;
-    private List<OneListBean.DataBean.ContentListBean> mContentListBeen = new ArrayList<>();
-    private RecyclerView recyclerView;
-    private OneListPresenter mOneListPresenter;
-    private List<String> mIdList;
-    private List<OneListBean> mOneList = new ArrayList<>();
+public class OneFragment extends BaseFragment {
 
-    private OneTypeItem mOneTypeItem;
+
+
+    private List<Fragment> mFragmentList = new ArrayList<>();
+    private FragmentPagerAdapter mFragmentPagerAdapter;
 
     @BindView(R.id.tv_one_year)
     TextView mTvOneYear;
@@ -80,143 +66,37 @@ public class OneFragment extends BaseFragment implements OneListView {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initViewPager();
 
-        initPresenter();
-        recyclerView = new RecyclerView(getActivity());
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(linearLayoutManager);
-        test();
-        mVpOne.setAdapter(new PagerAdapter() {
+    }
 
+    private void initViewPager() {
+        if (mFragmentList.isEmpty()) {
+            for (int i = 0; i < 5; i++) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("num", i);
+                OneDetailFragment oneDetailFragment = new OneDetailFragment();
+                oneDetailFragment.setArguments(bundle);
+                mFragmentList.add(oneDetailFragment);
+            }
+        }
+
+        mFragmentPagerAdapter = new FragmentPagerAdapter(getChildFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                return mFragmentList.get(position);
+            }
 
             @Override
             public int getCount() {
-                return 10;
-            }
-
-            @Override
-            public boolean isViewFromObject(View view, Object object) {
-                return view == object;
-            }
-
-            @Override
-            public Object instantiateItem(ViewGroup container, int position) {
-                recyclerView = new RecyclerView(getActivity());
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-                recyclerView.setLayoutManager(linearLayoutManager);
-                recyclerView.setAdapter(mContentListBeanCommonAdapter);
-                container.addView(recyclerView);
-                return recyclerView;
-            }
-
-            @Override
-            public void destroyItem(ViewGroup container, int position, Object object) {
-                container.removeView((View) object);
-            }
-        });
-
-        mVpOne.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (mOneList.size() == 0)
-                    return;
-                if (mOneList.size() <= position) {
-                    mOneListPresenter.getOneList(mIdList.get(position));
-                } else {
-                    mTvOneYear.setText(mOneList.get(position).getData().getDate());
-                    mContentListBeen.clear();
-                    for (OneListBean.DataBean.ContentListBean contentListBean : mOneList.get(position).getData().getContent_list()) {
-                        mContentListBeen.add(contentListBean);
-                    }
-                    mContentListBeanCommonAdapter.notifyDataSetChanged();
-                }
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-    }
-
-    private void test() {
-        mContentListBeanCommonAdapter = new CommonAdapter<OneListBean.DataBean.ContentListBean>(getActivity(), R.layout.item_string, mContentListBeen) {
-            @Override
-            protected void convert(ViewHolder holder, OneListBean.DataBean.ContentListBean contentListBean, int position) {
-                holder.setText(R.id.text1, contentListBean.getTitle());
+                return mFragmentList.size();
             }
         };
 
-        mOneTypeItem  = new OneTypeItem(getActivity(),mContentListBeen);
-//        recyclerView.setAdapter(mContentListBeanCommonAdapter);
-        recyclerView.setAdapter(mOneTypeItem);
+        mVpOne.setAdapter(mFragmentPagerAdapter);
+        mVpOne.setCurrentItem(0);
+        mVpOne.setOffscreenPageLimit(0);
     }
 
-    private void initPresenter() {
-        mOneListPresenter = new OneListPresenter();
-        mOneListPresenter.attachView(this);
-        mOneListPresenter.getIdList();
-    }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
-
-    @Override
-    public void showLoading() {
-//        recyclerView.setVisibility(View.VISIBLE);
-
-    }
-
-    @Override
-    public void hideLoading() {
-//        recyclerView.setVisibility(View.GONE);
-
-    }
-
-    @Override
-    public void showToast(String msg) {
-
-    }
-
-    @Override
-    public void showErr() {
-
-    }
-
-    @Override
-    public void showData(OneListBean oneListBean) {
-        LogUtils.e(oneListBean.getData().getContent_list());
-        mTvOneYear.setText(oneListBean.getData().getDate());
-        mOneList.add(oneListBean);
-        Collections.sort(mOneList,new ComparatorDate());
-        mContentListBeen.clear();
-        for (OneListBean.DataBean.ContentListBean contentListBean : oneListBean.getData().getContent_list()) {
-            mContentListBeen.add(contentListBean);
-        }
-        mOneTypeItem.notifyDataSetChanged();
-
-
-    }
-
-    @Override
-    public void initRecycleDate(IdListBean idListBean) {
-        LogUtils.e(idListBean.toString());
-        mIdList = idListBean.getIdList();
-        mOneListPresenter.getOneList(mIdList.get(0));
-    }
 }

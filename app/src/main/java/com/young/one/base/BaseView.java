@@ -23,7 +23,7 @@ public interface BaseView {
     /**
      * 显示请求错误提示
      */
-    void showErr();
+    void showErr(Throwable e);
     /**
      * 获取上下文
      * @return 上下文

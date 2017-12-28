@@ -32,7 +32,7 @@ public class OneListModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        callback.onError();
+                        callback.onError(e);
                     }
 
                     @Override
@@ -67,7 +67,7 @@ public class OneListModel {
                     @Override
                     public void onError(Throwable e) {
                         LogUtils.e(e.toString());
-                        callback.onError();
+                        callback.onError(e);
                     }
 
                     @Override

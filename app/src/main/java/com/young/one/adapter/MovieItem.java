@@ -27,7 +27,7 @@ public class MovieItem implements ItemViewDelegate<OneListBean.DataBean.ContentL
         holder.setText(R.id.tv_movie_film_name, contentListBean.getSubtitle().split(":")[1]);
         holder.setText(R.id.tv_movie_author, contentListBean.getShare_list().getWx().getDesc().split(" ")[0]);
         holder.setText(R.id.tv_movie_like_num, String.valueOf(contentListBean.getLike_count()));
-        holder.setimg(R.id.img_movie_picture,contentListBean.getImg_url());
+        holder.setImg(R.id.img_movie_picture,contentListBean.getImg_url());
 
 
 

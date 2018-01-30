@@ -37,7 +37,7 @@ public class BaseApplication extends Application {
         LogUtils.d(config.toString());
     }
 
-    private Context mContext;
+    public  Context mContext;
 
     public Context getContext() {
         return getApplicationContext();

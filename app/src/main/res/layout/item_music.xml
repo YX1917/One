@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
     android:orientation="vertical">
 
 
@@ -62,7 +63,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView5"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@mipmap/img_music_bg"/>
+        app:srcCompat="@drawable/img_music_bg"/>
 
     <ImageView
         android:id="@+id/imageView4"
@@ -72,7 +73,7 @@
         android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/img_music_picture"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:srcCompat="@mipmap/xiami_right"
+        app:srcCompat="@drawable/xiami_right"
         />
 
     <ImageView
@@ -84,7 +85,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_music_author"
-        app:srcCompat="@mipmap/feeds_music_words"/>
+        app:srcCompat="@drawable/feeds_music_words"/>
 
     <ImageButton
         android:id="@+id/img_music_play"
@@ -101,7 +102,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/img_music_picture"
         app:layout_constraintRight_toRightOf="@+id/img_music_picture"
         app:layout_constraintTop_toTopOf="@+id/img_music_picture"
-        app:srcCompat="@mipmap/feeds_radio_play"/>
+        app:srcCompat="@drawable/feeds_radio_play"/>
 
     <TextView
         android:id="@+id/tv_music_singer"
@@ -151,7 +152,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/bubble_like"/>
+            app:srcCompat="@drawable/bubble_like"/>
 
         <TextView
             android:id="@+id/tv_music_like_num"
@@ -171,7 +172,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/cl_movie_like"
         app:layout_constraintRight_toRightOf="@+id/tv_music_forward"
         app:layout_constraintTop_toTopOf="@+id/cl_movie_like"
-        app:srcCompat="@mipmap/bubble_share"/>
+        app:srcCompat="@drawable/bubble_share"/>
 
 
 </android.support.constraint.ConstraintLayout>

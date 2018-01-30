@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_read_top"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/essay_hp_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="石榴死在冰箱的第二层"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/essay_hp_author"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="文/摇摇"
+        android:textColor="#414141"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@+id/essay_hp_title"
+        app:layout_constraintTop_toBottomOf="@+id/essay_hp_title"/>
+
+    <TextView
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/liked_bg"
+        android:padding="8dp"
+        android:text="sdfsdfwdf"
+        app:layout_constraintLeft_toLeftOf="@+id/essay_hp_author"
+        app:layout_constraintTop_toBottomOf="@+id/essay_hp_author"/>
+
+
+</android.support.constraint.ConstraintLayout>

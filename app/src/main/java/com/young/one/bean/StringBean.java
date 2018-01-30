@@ -9,7 +9,7 @@ import java.util.List;
 public class StringBean {
     /**
      * 0 摄影
-     * 1 文章
+     * 1 OneStory 阅读 专栏
      * 2 连载
      * 3 问答
      * 4 音乐

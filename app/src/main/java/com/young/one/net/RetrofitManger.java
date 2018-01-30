@@ -72,7 +72,6 @@ public class RetrofitManger {
                     mOkHttpClient = new OkHttpClient.Builder()
                             .cache(cache)
                             .addInterceptor(loggingInterceptor)
-                            .addNetworkInterceptor(mRewriteCacheControlInterceptor)
                             .retryOnConnectionFailure(true)
                             .connectTimeout(15, TimeUnit.SECONDS)
                             .readTimeout(15, TimeUnit.SECONDS)

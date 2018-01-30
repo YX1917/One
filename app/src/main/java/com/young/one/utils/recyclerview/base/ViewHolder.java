@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.young.one.R;
+import com.young.one.utils.GlideCircleTransform;
 
 
 public class ViewHolder extends RecyclerView.ViewHolder {
@@ -213,9 +214,14 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     }
 
 
-    public ViewHolder setimg(int viewId, String uri) {
+    public ViewHolder setImg(int viewId, String uri) {
         ImageView view = (ImageView) getView(viewId);
-        Glide.with(mContext).load(uri).error(R.mipmap.loading_error).placeholder(R.mipmap.loading).into(view);
+        Glide.with(mContext).load(uri).error(R.drawable.loading_error).placeholder(R.drawable.loading).into(view);
+        return this;
+    }
+    public ViewHolder setCircleImg(int viewId, String uri) {
+        ImageView view = (ImageView) getView(viewId);
+        Glide.with(mContext).load(uri).transform(new GlideCircleTransform(mContext)).error(R.drawable.loading_error).placeholder(R.drawable.loading).into(view);
         return this;
     }
 

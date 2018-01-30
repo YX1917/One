@@ -1,7 +1,9 @@
 package com.young.one.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,7 +17,11 @@ import com.young.one.base.BaseFragment;
 import com.young.one.bean.IdListBean;
 import com.young.one.bean.OneListBean;
 import com.young.one.presenter.OneListPresenter;
+import com.young.one.ui.activity.EssayActivity;
+import com.young.one.ui.activity.QuestionActivity;
+import com.young.one.utilcode.util.ActivityUtils;
 import com.young.one.utilcode.util.LogUtils;
+import com.young.one.utils.recyclerview.MultiItemTypeAdapter;
 import com.young.one.view.OneListView;
 
 import java.util.ArrayList;
@@ -68,6 +74,7 @@ public class OneDetailFragment extends BaseFragment implements OneListView {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         mRecycleOneDetail.setLayoutManager(linearLayoutManager);
         mOneTypeItem = new OneTypeItem(getActivity(),mContentListBeen);
+        mRecycleOneDetail.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
         mRecycleOneDetail.setAdapter(mOneTypeItem);
     }
 
@@ -124,11 +131,33 @@ public class OneDetailFragment extends BaseFragment implements OneListView {
     }
 
     @Override
-    public void initRecycleDate(IdListBean idListBean) {
+    public void initRecycleDate(final IdListBean idListBean) {
         if (idListBean.getRes() == 0) {
             mIdList = idListBean.getIdList();
             mOneListPresenter.getOneList(mIdList.get(mPosition));
         }
+
+        mOneTypeItem.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                Intent intent = new Intent();
+                switch (mContentListBeen.get(position).getCategory()) {
+                    case "1":
+                        intent.setClass(getActivity(),EssayActivity.class);
+                        break;
+                    case "3":
+                        intent.setClass(getActivity(),QuestionActivity.class);
+                        break;
+                }
+                intent.putExtra(getString(R.string.Content_Id),mContentListBeen.get(position).getContent_id());
+                ActivityUtils.startActivity(intent);
+            }
+
+            @Override
+            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                return false;
+            }
+        });
 
     }
 

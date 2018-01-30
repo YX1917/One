@@ -42,7 +42,8 @@ public class ReadingItem implements ItemViewDelegate<OneListBean.DataBean.Conten
         holder.setText(R.id.tv_movie_author, contentListBean.getAuthor().getUser_name());
         holder.setText(R.id.tv_movie_forward, contentListBean.getForward());
         holder.setText(R.id.tv_read_like_num, String.valueOf(contentListBean.getLike_count()));
-        holder.setimg(R.id.img_movie_picture,contentListBean.getImg_url());
+        holder.setImg(R.id.img_movie_picture,contentListBean.getImg_url());
+
 
     }
 }

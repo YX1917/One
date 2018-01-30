@@ -27,7 +27,7 @@ public class PhotoItem implements ItemViewDelegate<OneListBean.DataBean.ContentL
         holder.setText(R.id.tv_photo_forward, contentListBean.getForward());
         holder.setText(R.id.tv_photo_words_info, contentListBean.getWords_info());
         holder.setText(R.id.tv_photo_like_num, String.valueOf(contentListBean.getLike_count()));
-        holder.setimg(R.id.img_photo_picture,contentListBean.getImg_url());
+        holder.setImg(R.id.img_photo_picture,contentListBean.getImg_url());
 
 
     }

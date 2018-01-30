@@ -3,4 +3,5 @@
     <string name="bottom_one">one</string>
     <string name="bottom_all">All</string>
     <string name="bottom_me">me</string>
+    <string name="Content_Id">Content_Id</string>
 </resources>

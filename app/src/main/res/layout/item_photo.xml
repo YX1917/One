@@ -5,18 +5,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
     android:orientation="vertical">
 
 
     <ImageView
+        android:adjustViewBounds="true"
         android:id="@+id/img_photo_picture"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:scaleType="centerInside"
+        android:scaleType="fitXY"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/img_photo_bg"/>
+        app:srcCompat="@drawable/img_photo_bg"/>
 
     <LinearLayout
         android:id="@+id/ll_photo_like"
@@ -38,7 +40,7 @@
             android:id="@+id/img_phono_like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@mipmap/bubble_like"/>
+            app:srcCompat="@drawable/bubble_like"/>
 
         <TextView
             android:id="@+id/tv_photo_like_num"
@@ -122,7 +124,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@mipmap/bubble_find"/>
+            app:srcCompat="@drawable/bubble_find"/>
 
         <TextView
             android:layout_marginStart="6dp"
@@ -140,7 +142,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/ibtn_photo_diary"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ibtn_photo_diary"
-        app:srcCompat="@mipmap/bubble_share"/>
+        app:srcCompat="@drawable/bubble_share"/>
 
     <ImageButton
         android:id="@+id/ibtn_photo_diary"
@@ -150,7 +152,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/ibtn_photo_share"
         app:layout_constraintRight_toLeftOf="@+id/ibtn_photo_collect"
         app:layout_constraintTop_toTopOf="@+id/ibtn_photo_share"
-        app:srcCompat="@mipmap/bubble_diary"/>
+        app:srcCompat="@drawable/bubble_diary"/>
 
     <ImageButton
         android:id="@+id/ibtn_photo_share"
@@ -160,6 +162,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/ll_photo_find"
         app:layout_constraintRight_toLeftOf="@+id/ibtn_photo_diary"
         app:layout_constraintTop_toTopOf="@+id/ll_photo_find"
-        app:srcCompat="@mipmap/bubble_collect"/>
+        app:srcCompat="@drawable/bubble_collect"/>
 
 </android.support.constraint.ConstraintLayout>

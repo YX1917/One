@@ -27,7 +27,7 @@ public class MusicItem implements ItemViewDelegate<OneListBean.DataBean.ContentL
         holder.setText(R.id.tv_music_singer, contentListBean.getShare_info().getTitle().split(": ")[1] + "|" + contentListBean.getSubtitle().split(":")[1]);
         holder.setText(R.id.tv_music_author, contentListBean.getShare_list().getWx().getDesc().split(" ")[0]);
         holder.setText(R.id.tv_music_like_num, String.valueOf(contentListBean.getLike_count()));
-        holder.setimg(R.id.img_music_picture,contentListBean.getImg_url());
+        holder.setCircleImg(R.id.img_music_picture,contentListBean.getImg_url());
 
 
     }

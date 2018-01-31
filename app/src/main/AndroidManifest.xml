@@ -25,6 +25,7 @@
         <activity android:name=".ui.activity.EssayActivity"/>
         <activity android:name=".ui.activity.QuestionActivity"/>
         <activity android:name=".ui.activity.MusicActivity"/>
+        <activity android:name=".ui.activity.MovieActivity"/>
     </application>
 
 </manifest>

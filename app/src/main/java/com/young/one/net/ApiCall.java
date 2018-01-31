@@ -3,6 +3,8 @@ package com.young.one.net;
 import com.young.one.bean.EssayBean;
 import com.young.one.bean.EssayCommentBean;
 import com.young.one.bean.IdListBean;
+import com.young.one.bean.MusicBean;
+import com.young.one.bean.MusicCommentBean;
 import com.young.one.bean.OneListBean;
 import com.young.one.bean.QuestionBean;
 import com.young.one.bean.QuestionCommentBean;
@@ -42,7 +44,20 @@ public interface ApiCall {
     Observable<QuestionBean> getQuestionHtmlContent(@Path("content_id") String content_id);
 
     @Headers("Cache-Control: public, max-age=3600")
-    @GET("api/comment/praiseandtime/essay/{essay_id}/{comment_id}")
+    @GET("api/comment/praiseandtime/question/{essay_id}/{comment_id}")
     Observable<QuestionCommentBean> getQuestionComment(@Path("essay_id") String essay_id, @Path("comment_id") String comment_id);
+
+
+
+    @Headers("Cache-Control: public, max-age=3600")
+    @GET("api/music/detail/{content_id}")
+    Observable<MusicBean> getMusicHtmlContent(@Path("content_id") String content_id);
+
+
+    @Headers("Cache-Control: public, max-age=3600")
+    @GET("api/comment/praiseandtime/music/{essay_id}/{comment_id}")
+    Observable<MusicCommentBean> getMusicComment(@Path("essay_id") String essay_id, @Path("comment_id") String comment_id);
+
+
 
 }

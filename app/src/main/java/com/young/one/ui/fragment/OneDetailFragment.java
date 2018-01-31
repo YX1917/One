@@ -18,6 +18,7 @@ import com.young.one.bean.IdListBean;
 import com.young.one.bean.OneListBean;
 import com.young.one.presenter.OneListPresenter;
 import com.young.one.ui.activity.EssayActivity;
+import com.young.one.ui.activity.MusicActivity;
 import com.young.one.ui.activity.QuestionActivity;
 import com.young.one.utilcode.util.ActivityUtils;
 import com.young.one.utilcode.util.LogUtils;
@@ -147,6 +148,9 @@ public class OneDetailFragment extends BaseFragment implements OneListView {
                         break;
                     case "3":
                         intent.setClass(getActivity(),QuestionActivity.class);
+                        break;
+                    case "4":
+                        intent.setClass(getActivity(),MusicActivity.class);
                         break;
                 }
                 intent.putExtra(getString(R.string.Content_Id),mContentListBeen.get(position).getContent_id());
